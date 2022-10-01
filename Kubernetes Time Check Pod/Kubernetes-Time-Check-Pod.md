@@ -1,4 +1,4 @@
-#
+```
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -33,4 +33,4 @@ spec:
         [
           "while true; do date; sleep $TIME_FREQ;done > /opt/finance/time/time-check.log",
         ]
-
+```
