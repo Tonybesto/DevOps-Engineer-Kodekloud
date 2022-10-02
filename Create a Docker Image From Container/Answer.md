@@ -1,6 +1,8 @@
 login into the application server stated in the Question
 
 **`ssh tony@stapp01`**
+
+
 ![ssh login](./Images/ssh%20into%20app%20server.png)
 
 Change to the root user
