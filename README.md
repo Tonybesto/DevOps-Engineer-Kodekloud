@@ -6,3 +6,5 @@ Hands-on Project from KodeKloud-engineer.com
 2. Create a Docker Image From Container
 
 3. Create Deployments in Kubernetes Cluster
+
+4. Deploy Nagios on Kubernetes
