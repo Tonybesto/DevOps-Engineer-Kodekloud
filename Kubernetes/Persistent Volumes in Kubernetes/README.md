@@ -3,14 +3,13 @@
 The Nautilus DevOps team is working on a Kubernetes template to deploy a web application on the cluster. There are some requirements to create/use persistent volumes to store the application code, and the template needs to be designed accordingly. Please find more details below:
 
 
-We already created a directory /mnt/security and a file index.html under the same on node01 (you need not to access node01), that location should be mounted within the container to web server's document root (keep in mind doc root can be different for Apache and Nginx web servers).
 
-Create a PersistentVolume named as pv-nautilus. Configure the spec as storage class should be manual, set capacity to 8Gi, set access mode to ReadWriteOnce , volume type should be hostPath and set path to /mnt/security.
+Create a PersistentVolume named as pv-datacenter. Configure the spec as storage class should be manual, set capacity to 5Gi, set access mode to ReadWriteOnce, volume type should be hostPath and set path to /mnt/finance (this directory is already created, you might not be able to access it directly, so you need not to worry about it).
 
-Create a PersistentVolumeClaim named as pvc-nautilus. Configure the spec as storage class should be manual, set request storage to 5Gi, set access mode to ReadWriteOnce.
+Create a PersistentVolumeClaim named as pvc-datacenter. Configure the spec as storage class should be manual, request 2Gi of the storage, set access mode to ReadWriteOnce.
 
-Create a pod named as pod-nautilus, set volume as storage-nautilus, and persistent volume claim to be named as pvc-nautilus. Container name should be container-nautilus, use image nginx with latest tag only and remember to mention tag i.e nginx:latest , container port should be default port 80, mount the volume to mount path to default doc root of web server and should be named storage-nautilus.
+Create a pod named as pod-datacenter, mount the persistent volume you created with claim name pvc-datacenter at document root of the web server, the container within the pod should be named as container-datacenter using image nginx with latest tag only (remember to mention the tag i.e nginx:latest).
 
-You can check your static website, exec into the pod and use curl command, i.e curl http://localhost.
+Create a node port type service named web-datacenter using node port 30008 to expose the web server running within the pod.
 
 Note: The kubectl utility on jump_host has been configured to work with the kubernetes cluster.

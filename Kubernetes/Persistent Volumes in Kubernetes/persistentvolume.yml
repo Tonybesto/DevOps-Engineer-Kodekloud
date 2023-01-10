@@ -18,3 +18,17 @@ spec:
           operator: In
           values:
             - node01
+
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata: 
+  name: pv-datacenter
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteOnce 
+  hostPath:
+    path: /mnt/finance
