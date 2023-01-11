@@ -1,18 +1,12 @@
 apiVersion: v1
-kind: Pod
+kind: PersistentVolume
 metadata:
-  name: pod-nautilus
+  name: pv-datacenter
 spec:
-  volumes:
-    - name: storage-nautilus
-      persistentVolumeClaim:
-        claimName: pvc-nautilus
-  containers:
-    - image: nginx:latest
-      name: container-nautilus
-      ports:
-        - containerPort: 80
-          name: "web"
-      volumeMounts:
-        - mountPath: /usr/share/nginx/html"
-          name: storage-nautilus
+  capacity:
+    storage: 3Gi
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: manual
+  hostPath:
+    path: /mnt/security

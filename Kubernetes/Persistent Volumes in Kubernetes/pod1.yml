@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-datacenter
+  labels:
+    app: web
+spec:
+  containers:
+    - name: container-datacenter
+      image: httpd:latest
+      volumeMounts:
+      - mountPath: "/usr/share/httpd/html"
+        name: storage-nautilus
+      ports:
+        - containerPort: 80
+  volumes:
+    - name: storage-nautilus
+      persistentVolumeClaim:
+        claimName: pvc-datacenter
