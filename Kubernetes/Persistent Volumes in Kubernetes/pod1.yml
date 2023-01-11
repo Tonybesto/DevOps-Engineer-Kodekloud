@@ -9,7 +9,7 @@ spec:
     - name: container-datacenter
       image: httpd:latest
       volumeMounts:
-      - mountPath: "/usr/share/httpd/html"
+      - mountPath: "/usr/share/nginx/www"
         name: storage-nautilus
       ports:
         - containerPort: 80
