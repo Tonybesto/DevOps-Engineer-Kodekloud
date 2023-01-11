@@ -4,9 +4,9 @@ metadata:
   name: pv-datacenter
 spec:
   capacity:
-    storage: 3Gi
+    storage: 4Gi
   accessModes:
     - ReadWriteOnce
   storageClassName: manual
   hostPath:
-    path: /mnt/security
+    path: /mnt/devops
