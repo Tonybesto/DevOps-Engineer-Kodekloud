@@ -98,4 +98,3 @@ Welcome to Nautilus Group!
 This is a Nautilus sample file, created using Ansible!
 ```
 
-Thank you.
