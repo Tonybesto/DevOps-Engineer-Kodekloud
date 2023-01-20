@@ -8,7 +8,7 @@ The Nautilus Application Development team is planning to deploy one of the php-b
 
 2.) Create a `config map` `nginx-config` for `nginx.conf` as we want to add some custom settings for nginx.conf.
 
-a) Change default port `80` to `8098` in nginx.conf.
+a) Change default port `80` to `8094` in nginx.conf.
 
 b) Change default document root `/usr/share/nginx` to `/var/www/html` in nginx.conf.
 
