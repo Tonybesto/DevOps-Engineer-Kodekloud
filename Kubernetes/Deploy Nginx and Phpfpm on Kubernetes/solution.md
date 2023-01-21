@@ -67,4 +67,4 @@ kubectl cp /opt/index.php nginx-phpfpm:/var/www/html -c nginx-container
 
 ![Nginx-php App](/images/nginx-php-app.png)
 
-Thank you.
+## Thank you..
