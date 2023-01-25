@@ -4,9 +4,9 @@ Some new changes need to be made on some of the app servers in Stratos Datacente
 
 Puppet master is already installed on Jump Server.
 
-Create a puppet programming file apps.pp under /etc/puppetlabs/code/environments/production/manifests on master node i.e on Jump Server and perform below mentioned tasks using the same.
+Create a puppet programming file `apps.pp` under `/etc/puppetlabs/code/environments/production/manifests` on `master` node i.e on `Jump Server` and perform below mentioned tasks using the same.
 
-Define a class multi_package_node for agent node 1 i.e app server 1. Install vim-enhanced and zip packages on the agent node 1.
+Define a class `multi_package_node` for agent `node 1` i.e app server 1. Install `vim-enhanced and zip` packages on the agent node 1.
 
 Notes: :- Please make sure to run the puppet agent test using sudo on agent nodes, otherwise you can face certificate issues. In that case you will have to clean the certificates first and then you will be able to run the puppet agent test.
 
