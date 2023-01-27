@@ -9,8 +9,8 @@ yum install git -y
 2. Set up git config with your username and email id using the following command,
 
 ```
-git config --global user.email 'mohanpawary1990@gmail.com'
-git config --global user.name 'Mohan Pawar'
+git config --global user.email 'akojianthony@gmail.com'
+git config --global user.name 'Akoji Anthony'
 ```
 
 3. Now, create a git bare repository `/opt/blog.git` using git init command,
