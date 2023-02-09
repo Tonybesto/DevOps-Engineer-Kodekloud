@@ -1,14 +1,14 @@
-node 'stapp01.stratos.xfusioncorp.com', 'stapp02.stratos.xfusioncorp.com', 'stapp03.stratos.xfusioncorp.com' {
-    include vsftpd_package
+node 'stapp01.stratos.xfusioncorp.com' {
+    include tomcat
 }
 
-class vsftpd_package {
-    package { 'vsftpd':
+class tomcat {
+    package { 'tomcat':
     	ensure => installed,
     }
-    service { 'vsftpd':
+    service { 'tomcat':
         ensure => running,
-	require => Package['vsftpd'],
+	require => Package['tomcat'],
         enable => true,
     }
 }

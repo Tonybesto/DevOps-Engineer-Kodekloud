@@ -23,53 +23,45 @@ root@jump_host /etc/puppetlabs/code/environments/production/manifests#
 4. Now, SSH to App servers respectively and run using --noop and without noop,
 
 ```
-[root@stapp02 steve]# puppet agent -tv --noop
+[root@stapp01 tony]# puppet agent -tv --noop
 Info: Using configured environment 'production'
 Info: Retrieving pluginfacts
 Info: Retrieving plugin
 Info: Retrieving locales
-Info: Applying configuration version '1599541801'
-Notice: /Stage[main]/Nginx_package/Package[vsftpd]/ensure: current_value 'purged', should be 'present' (noop)
-Notice: /Stage[main]/Nginx_package/Service[nginx]/ensure: current_value 'stopped', should be 'running' (noop)
-Info: /Stage[main]/Nginx_package/Service[nginx]: Unscheduling refresh on Service[nginx]
-Notice: Class[Nginx_package]: Would have triggered 'refresh' from 2 events
-Notice: Stage[main]: Would have triggered 'refresh' from 1 event
-Notice: Applied catalog in 0.58 seconds
+Info: Applying configuration version '1675951745'
+Notice: Applied catalog in 0.19 seconds
 
-[root@stapp02 steve]# puppet agent -tv
+[root@stapp01 tony]# puppet agent -tv 
 Info: Using configured environment 'production'
 Info: Retrieving pluginfacts
 Info: Retrieving plugin
 Info: Retrieving locales
-Info: Caching catalog for stapp02.stratos.xfusioncorp.com
-Info: Applying configuration version '1599541873'
-Notice: /Stage[main]/Nginx_package/Package[vsftpd]/ensure: created
-Notice: /Stage[main]/Nginx_package/Service[vsftpd]/ensure: ensure changed 'stopped' to 'running'
-Info: /Stage[main]/Nginx_package/Service[vsftpd]: Unscheduling refresh on Service[vsftpd]
-Notice: Applied catalog in 9.65 seconds
+Info: Caching catalog for stapp01.stratos.xfusioncorp.com
+Info: Applying configuration version '1675951796'
+Notice: Applied catalog in 0.20 seconds
 ```
 
-5. Finally validate the status of the `vsftpd` service which we installed,
+5. Finally validate the status of the `tomcat` service which we installed,
 
 ```
-[root@stapp02 steve]# service vsftpd status
-Redirecting to /bin/systemctl status vsftpd.service
-● vsftpd.service - Vsftpd ftp daemon
-   Loaded: loaded (/usr/lib/systemd/system/vsftpd.service; enabled; vendor preset: disabled)
-   Active: active (running) since Tue 2020-09-08 05:11:24 UTC; 34s ago
- Main PID: 413 (vsftpd)
-   CGroup: /docker/dba800426aa7741bc1ba8beb134ac4a6ab51f8c44ea238bfdfc78d8e9a8631b9/system.slice/vsftpd.service
-           └─413 /usr/sbin/vsftpd /etc/vsftpd/vsftpd.conf
+[root@stapp01 tony]# service tomcat status
+Redirecting to /bin/systemctl status tomcat.service
+● tomcat.service - Apache Tomcat Web Application Container
+   Loaded: loaded (/usr/lib/systemd/system/tomcat.service; enabled; vendor preset: disabled)
+   Active: active (running) since Thu 2023-02-09 14:08:54 UTC; 1min 46s ago
+ Main PID: 1254 (java)
+   CGroup: /docker/7b25172aff1255d6acbbe6d419f6c2d3ff978a2e0ad48c7af70c0c54efc4f4be/system.slice/tomcat.service
+           └─1254 /usr/lib/jvm/jre/bin/java -Djavax.sql.DataSource.Factory=org.apache.commons.dbcp.BasicDataSourceFactory -classpath /usr/share/tomcat/bin/...
 
-Sep 08 05:11:24 stapp02 systemd[1]: Forked /usr/sbin/vsftpd as 412
-Sep 08 05:11:24 stapp02 systemd[1]: vsftpd.service changed dead -> start
-Sep 08 05:11:24 stapp02 systemd[1]: Starting Vsftpd ftp daemon...
-Sep 08 05:11:24 stapp02 systemd[1]: Child 412 belongs to vsftpd.service
-Sep 08 05:11:24 stapp02 systemd[1]: vsftpd.service: control process exited, code=exited status=0
-Sep 08 05:11:24 stapp02 systemd[1]: vsftpd.service got final SIGCHLD for state start
-Sep 08 05:11:24 stapp02 systemd[1]: Main PID guessed: 413
-Sep 08 05:11:24 stapp02 systemd[1]: vsftpd.service changed start -> running
-Sep 08 05:11:24 stapp02 systemd[1]: Job vsftpd.service/start finished, result=done
-Sep 08 05:11:24 stapp02 systemd[1]: Started Vsftpd ftp daemon.
+Feb 09 14:08:59 stapp01.stratos.xfusioncorp.com server[1254]: Feb 09, 2023 2:08:59 PM org.apache.catalina.core.StandardService startInternal
+Feb 09 14:08:59 stapp01.stratos.xfusioncorp.com server[1254]: INFO: Starting service Catalina
+Feb 09 14:08:59 stapp01.stratos.xfusioncorp.com server[1254]: Feb 09, 2023 2:08:59 PM org.apache.catalina.core.StandardEngine startInternal
+Feb 09 14:08:59 stapp01.stratos.xfusioncorp.com server[1254]: INFO: Starting Servlet Engine: Apache Tomcat/7.0.76
+Feb 09 14:08:59 stapp01.stratos.xfusioncorp.com server[1254]: Feb 09, 2023 2:08:59 PM org.apache.coyote.AbstractProtocol start
+Feb 09 14:08:59 stapp01.stratos.xfusioncorp.com server[1254]: INFO: Starting ProtocolHandler ["http-bio-8080"]
+Feb 09 14:08:59 stapp01.stratos.xfusioncorp.com server[1254]: Feb 09, 2023 2:08:59 PM org.apache.coyote.AbstractProtocol start
+Feb 09 14:08:59 stapp01.stratos.xfusioncorp.com server[1254]: INFO: Starting ProtocolHandler ["ajp-bio-8009"]
+Feb 09 14:08:59 stapp01.stratos.xfusioncorp.com server[1254]: Feb 09, 2023 2:08:59 PM org.apache.catalina.startup.Catalina start
+Feb 09 14:08:59 stapp01.stratos.xfusioncorp.com server[1254]: INFO: Server startup in 1295 ms
 ```
 Thank you.
