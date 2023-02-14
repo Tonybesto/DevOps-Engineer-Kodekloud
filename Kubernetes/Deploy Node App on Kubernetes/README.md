@@ -1,18 +1,16 @@
 #### Deploy Node App on Kubernetes
 
-The Nautilus development team has completed development of one of the node application which they are planning deploy on a Kubernetes cluster. They recently had a meeting with DevOps team to share their requirements based on that DevOps team has listed out the exact requirement to setup the cluster the same. Fine below more details:
+The Nautilus development team has completed development of one of the node applications, which they are planning to deploy on a Kubernetes cluster. They recently had a meeting with the DevOps team to share their requirements. Based on that, the DevOps team has listed out the exact requirements to deploy the app. Find below more details:
 
-    Create a namespace named node-namespace-devops.
+Create a deployment using `gcr.io/kodekloud/centos-ssh-enabled:node` image, `replica` count must be `2`.
 
-    Create a deployment named node-deployment-devops under this new namespace. Replica count should be 2, container should be named as node-container-devops, use gcr.io/kodekloud/centos-ssh-enabled:node image and container port should be 80.
+Create a service to expose this app, the service type must be `NodePort`, targetPort must be `8080` and nodePort should be `30012`.
 
-    Create a service named node-service-devops. Service type should be NodePort, target port should be 8080, port should be 80 and nodePort should be 30012.
+Make sure all the pods are in `Running` state after the deployment.
 
-    Make sure all pods are in Running state after the deployment.
+You can check the application by clicking on `NodeApp` button on top bar.
 
-    You can check application page by clicking on + button on top left corner and click on Select port to view on Host 1, then enter your nodePort.
-
-You can use any labels as per your choice.
+`You can use any labels as per your choice.`
 
 Note: The kubectl on jump_host has been configured to work with the kubernetes cluster.
 

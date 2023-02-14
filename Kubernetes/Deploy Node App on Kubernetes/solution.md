@@ -12,21 +12,15 @@ thor@jump_host /$ cd /home/thor/
 thor@jump_host ~$ alias k='kubectl'
 ```
 
-3. First, create a namespace named, `node-namespace-nautilus`,
 
-```
-thor@jump_host ~$ k create ns node-namespace-nautilus
-namespace/node-namespace-nautilus created
-```
-
-4. Create a file node-app.yaml for writing a deployment and service manifest,
+3. Create a file node-app.yaml for writing a deployment and service manifest,
 
 ```
 thor@jump_host ~$ vi node-app.yaml
 ```
 *Note: Refer same directory for config*
 
-5. Create a deployment and service respectively,
+4. Create a deployment and service respectively,
 
 ```
 thor@jump_host ~$ k create -f node-app.yaml
@@ -37,23 +31,20 @@ service/node-service-nautilus created
 6. Check the pod, deployment status,
 
 ```
-thor@jump_host ~$ k get pods -n node-namespace-nautilus
+thor@jump_host ~$ k get pods
 NAME                                        READY   STATUS    RESTARTS   AGE
-node-deployment-nautilus-6f4ff4f975-qmckl   1/1     Running   0          41s
-node-deployment-nautilus-6f4ff4f975-swrrz   1/1     Running   0          41s
+node-deployment-nautilus-7794fdd768-j7bj5   1/1     Running   0          72s
+node-deployment-nautilus-7794fdd768-jv5lm   1/1     Running   0          72s
 
-thor@jump_host ~$ k get deploy -n node-namespace-nautilu
+thor@jump_host ~$ k get deployment 
 NAME                       READY   UP-TO-DATE   AVAILABLE   AGE
-node-deployment-nautilus   2/2     2            2           69s
+node-deployment-nautilus   0/2     2            0           7s
 
-thor@jump_host ~$ k get svc -n node-namespace-nautilus
-NAME                    TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
-node-service-nautilus   NodePort   10.102.243.33   <none>        80:30012/TCP   74s
+thor@jump_host ~$ k get svc
+NAME                    TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
+kubernetes              ClusterIP   10.96.0.1       <none>        443/TCP        24m
+node-service-nautilus   NodePort    10.96.150.117   <none>        80:30012/TCP   6s
 ```
-
-7. Finally, access the application on port 31181 as shown below,
-
-![Node Application](/images/nodeApp.JPG)
 
 Thank you.
 
