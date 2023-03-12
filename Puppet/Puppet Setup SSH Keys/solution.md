@@ -10,7 +10,7 @@ root@jump_host /home/thor# cd /etc/puppetlabs/code/environments/production/manif
 
 ```
 root@jump_host /etc/puppetlabs/code/environments/production/manifests# cat ~/.ssh/id_rsa.pub
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCqMWxj1XwglDg2ug1O7OB78lsmA91mi7URN5BbV3x4RYR/iEr0rdw32/Jx4iFwevyyXeoIQfbmzMgRFDeav8S4Nby/LPHpYC8bBWJ3kNKU+ROONgMp6d5xjswNLz52TEeNY/FBSTiJJjjHAaFDLxerc8ROpWeNAOH2BaySqtZu502hGKcb+1YLvAuoElsWf8Z5g3qTjcGCvWfmU2r1dN+iRPB0yxU1sws0dBFONGZHJPs+HfQzdBG11XoSOEUcgnqqd1wEx9y0n+NuPo9oD3W6kyUu6rN5b9SHHE+eOkdYpqLDxlNX9rR6mf7AzguSToZS4XzJPCf7eJrpzRiplyXH root@jump_host
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC1B4pvUpjeE3nfgSBgSgWPF18P9nucZeV/nMkvK/cP1rnrlIE/jgySDjr2Z1h9d8xEKlmhq8BuLuSo3Ytslv416fjh0riK9mAARtKoN0ERUsKhezDeK7CIygPxYG/thu1XX2zITbfIBV+CYSjOfELk2cYd3r5kY9kQL5JkDPyPDwxT6xKlvz5JXEFpw8bwPN2DMeP0tEP2WodJGyVOGPq2VXL/UJDveSQKDWJc5ecPfryeJxPwce9iJJRr3/ScBgQKCcSxh4OAKUlGnoV2ligZ7F+DC/02VTRYt1o3jRPdSbZ+6FvVKZdfEqEFfA5tsOausG7jjr2O3yBBWVmWSerL thor@jump_host.stratos.xfusioncorp.com
 ```
 
 3. Now, create puppet programming file, `official.pp` with resource  `ssh_authorized_key` to copy ssh key,
@@ -30,24 +30,16 @@ root@jump_host /etc/puppetlabs/code/environments/production/manifests#
 4. On all all servers, run a test,
 
 ```
-[tony@stapp01 ~]$ sudo puppet agent -tv
-
-We trust you have received the usual lecture from the local System
-Administrator. It usually boils down to these three things:
-
-    #1) Respect the privacy of others.
-    #2) Think before you type.
-    #3) With great power comes great responsibility.
-
-[sudo] password for tony:
+[root@stapp01 ~]# puppet agent -tv
 Info: Using configured environment 'production'
 Info: Retrieving pluginfacts
 Info: Retrieving plugin
 Info: Retrieving locales
 Info: Caching catalog for stapp01.stratos.xfusioncorp.com
-Info: Applying configuration version '1600606610'
-Notice: /Stage[main]/Ssh_node1/Ssh_authorized_key[root@jump_host]/ensure: created
-Notice: Applied catalog in 0.05 seconds
+Info: Applying configuration version '1678625690'
+Notice: /Stage[main]/Ssh_node1/Ssh_authorized_key[root@jump_host]/key: key changed 'AAAAB3NzaC1yc2EAAAADAQABAAABAQCqMWxj1XwglDg2ug1O7OB78lsmA91mi7URN5BbV3x4RYR/iEr0rdw32/Jx4iFwevyyXeoIQfbmzMgRFDeav8S4Nby/LPHpYC8bBWJ3kNKU+ROONgMp6d5xjswNLz52TEeNY/FBSTiJJjjHAaFDLxerc8ROpWeNAOH2BaySqtZu502hGKcb+1YLvAuoElsWf8Z5g3qTjcGCvWfmU2r1dN+iRPB0yxU1sws0dBFONGZHJPs+HfQzdBG11XoSOEUcgnqqd1wEx9y0n+NuPo9oD3W6kyUu6rN5b9SHHE+eOkdYpqLDxlNX9rR6mf7AzguSToZS4XzJPCf7eJrpzRiplyXH' to 'AAAAB3NzaC1yc2EAAAADAQABAAABAQC1B4pvUpjeE3nfgSBgSgWPF18P9nucZeV/nMkvK/cP1rnrlIE/jgySDjr2Z1h9d8xEKlmhq8BuLuSo3Ytslv416fjh0riK9mAARtKoN0ERUsKhezDeK7CIygPxYG/thu1XX2zITbfIBV+CYSjOfELk2cYd3r5kY9kQL5JkDPyPDwxT6xKlvz5JXEFpw8bwPN2DMeP0tEP2WodJGyVOGPq2VXL/UJDveSQKDWJc5ecPfryeJxPwce9iJJRr3/ScBgQKCcSxh4OAKUlGnoV2ligZ7F+DC/02VTRYt1o3jRPdSbZ+6FvVKZdfEqEFfA5tsOausG7jjr2O3yBBWVmWSerL'
+Info: Computing checksum on file /home/tony/.ssh/authorized_keys
+Notice: Applied catalog in 0.08 seconds
 ```
 
 5. Finally, validate the contents of `authorized_keys` on all app servers or you can do try to ssh as shown below, which should not show enter a password prompt,
