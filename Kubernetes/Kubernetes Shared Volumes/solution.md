@@ -33,51 +33,31 @@ thor@jump_host ~$ k get pods
 NAME                   READY   STATUS              RESTARTS   AGE
 volume-share-xfusion   0/2     ContainerCreating   0          6s
 
-thor@jump_host ~$ k get pods
-NAME                   READY   STATUS    RESTARTS   AGE
-volume-share-xfusion   2/2     Running   0          15s
+thor@jump_host ~$ kubectl get pod 
+NAME                    READY   STATUS    RESTARTS   AGE
+volume-share-xfusion   2/2     Running   0          16s
 ```
 
-6. Now get a shell into `volume-container-xfusion-1` and create a blog.txt file as described in problem statement,
+6. Now get a shell into `volume-container-xfusion-1` and create a beta.txt file as described in problem statement,
 
 ```
-thor@jump_host ~$ k exec -it volume-share-xfusion -c volume-container-xfusion-1 /bin/bash
-kubectl exec [POD] [COMMAND] is DEPRECATED and will be removed in a future version. Use kubectl kubectl exec [POD] -- [COMMAND] instead.
+thor@jump_host ~$ kubectl exec -it volume-share-xfusion -c volume-container-xfusion-1 -- /bin/bash
+root@volume-share-xfusion:/# echo "this is a test file" > /tmp/ecommerce/ecommerce.txt
 
-[root@volume-share-xfusion /]# cd /tmp/blog/
-
-[root@volume-share-xfusion blog]# ls -ltr
-total 0
-
-[root@volume-share-xfusion blog]# echo "Welcome to xFusionCorp Industries!" > blog.txt
-
-[root@volume-share-xfusion blog]# ls -ltr
+[root@volume-share-nautilus /]# ls -ltr /tmp/ecommerce/
 total 4
--rw-r--r-- 1 root root 35 Oct 26 06:16 blog.txt
+-rw-r--r-- 1 root root 20 Mar 19 13:08 ecommerce.txt
 
-[root@volume-share-xfusion blog]# cat blog.txt
-Welcome to xFusionCorp Industries!
-
-[root@volume-share-xfusion blog]# exit
-exit
+[root@volume-share-nautilus /]# cat /tmp/ecommerce/ecommerce.txt 
+this is a test file
 ```
 
-7. Once you exit out of a container, now get a shell into `volume-container-xfusion-2` and check if you can see the blog.txt file is present or not!
+7. Once you exit out of a container, now get a shell into `volume-container-xfusion-2` and check if you can see the ecommerce.txt file is present or not!
 
 ```
-thor@jump_host ~$ k exec -it volume-share-xfusion -c volume-container-xfusion-2 /bin/bash
-kubectl exec [POD] [COMMAND] is DEPRECATED and will be removed in a future version. Use kubectl kubectl exec [POD] -- [COMMAND] instead.
-
-[root@volume-share-xfusion /]# cd /tmp/games/
-
-[root@volume-share-xfusion games]# ls -ltr
-total 4
--rw-r--r-- 1 root root 35 Oct 26 06:16 blog.txt
-
-[root@volume-share-xfusion games]# cat blog.txt
-Welcome to xFusionCorp Industries!
-
-[root@volume-share-xfusion games]#
+thor@jump_host ~$ kubectl exec -it volume-share-xfusion -c volume-container-xfusion-2 -- /bin/bash
+root@volume-share-xfusion:/# cat /tmp/apps/ecommerce.txt 
+this is a test file
 ```
 
 Thank you.

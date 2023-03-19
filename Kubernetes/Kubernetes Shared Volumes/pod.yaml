@@ -5,19 +5,17 @@ metadata:
 spec:
   containers:
   - name: volume-container-xfusion-1
-    image: fedora:latest
-    command: ["/bin/bash"]
-    args: ["-c", "sleep 10000"]
+    image: debian:latest
+    command: ["/bin/bash", "-c", "sleep infinity"]
     volumeMounts:
     - name: volume-share
-      mountPath: /tmp/blog
+      mountPath: /tmp/ecommerce
   - name: volume-container-xfusion-2
-    image: fedora:latest
-    command: ["/bin/bash"]
-    args: ["-c", "sleep 10000"]
+    image: debian:latest
+    command: ["/bin/bash", "-c", "sleep infinity"]
     volumeMounts:
     - name: volume-share
-      mountPath: /tmp/games
+      mountPath: /tmp/apps
 
   volumes:
   - name: volume-share
