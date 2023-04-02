@@ -3,35 +3,35 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ic-deploy-nautilus
+  name: ic-deploy-xfusion
   labels:
-    app: ic-nautilus
+    app: ic-xfusion
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ic-nautilus
+      app: ic-xfusion
   template:
     metadata:
       labels:
-        app: ic-nautilus
+        app: ic-xfusion
     spec:
       containers:
-      - name: ic-main-nautilus
+      - name: ic-main-xfusion
         image: fedora:latest
-        command: [ "/bin/bash"]
-        args: [ "-c", "while true; do cat /ic/beta; sleep 5; done" ]
+        command: ["/bin/bash"]
+        args: ["-c", "while true; do cat /ic/ecommerce; sleep 5; done"]
         volumeMounts:
-          - name: ic-volume-nautilus
+          - name: ic-volume-xfusion
             mountPath: /ic
       initContainers:
-      - name: ic-msg-nautilus
+      - name: ic-msg-xfusion
         image: fedora:latest
         command: [ "/bin/bash" ]
-        args: [ "-c", "echo Init Done - Welcome to xFusionCorp Industries > /ic/beta" ]
+        args: ["-c", "echo Init Done - Welcome to xFusionCorp Industries > /ic/ecommerce"]
         volumeMounts:
-          - name: ic-volume-nautilus
+          - name: ic-volume-xfusion
             mountPath: /ic
       volumes:
-      - name: ic-volume-nautilus
+      - name: ic-volume-xfusion
         emptyDir: {}
