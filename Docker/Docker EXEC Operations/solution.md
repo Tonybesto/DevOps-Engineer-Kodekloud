@@ -2,13 +2,13 @@
 
 SSH to App Server 3 and check the running docker container using a command,
 
-    [root@stapp03 banner]# docker container ps
-    CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
-    0ee411662210        ubuntu:latest       "/bin/bash"         8 minutes ago       Up 8 minutes                            kkloud
+  [root@stapp03 ~]# docker container ls
+CONTAINER ID   IMAGE          COMMAND       CREATED         STATUS         PORTS     NAMES
+43e0927d5cac   ubuntu:18.04   "/bin/bash"   3 minutes ago   Up 2 minutes             kkloud
 
 Now get a shell inside of a running container using, 
 
-    docker container exec -it 0ee411662210 /bin/bash
+    docker container exec -it 43e0927d5cac /bin/bash
 
 Now you are inside a container, install apache2 using apt package manager,
 
@@ -18,13 +18,17 @@ Install vim editor for editing config file,
 
     apt install vim
 
-Finally, change the port in `/etc/apache2/ports.conf` file from 80 to 5004 respectively and restart the apache2 service.
+Finally, change the port in `/etc/apache2/ports.conf` file from 80 to 5002 respectively and restart the apache2 service.
 
-    service apache2 status
+```
+service apache2 start
+
+service apache2 status
+```
 
 Then, check locally inside the container using curl call,
 
-    root@0ee411662210:/# curl localhost:5004
+    root@43e0927d5cac:/# curl localhost:5002
 
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
     <html xmlns="http://www.w3.org/1999/xhtml">
