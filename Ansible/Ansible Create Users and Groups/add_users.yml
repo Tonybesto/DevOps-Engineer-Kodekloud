@@ -1,6 +1,6 @@
 ---
 - name: ansible add users and groups playbook
-  hosts: stapp03 # dedicated host
+  hosts: stapp02 # dedicated host
   become: yes
   tasks:
   - name: creating admin group 
@@ -18,7 +18,7 @@
   - name: creating users for the admins group
     user:
      name: "{{ item }}"
-     password: "{{ 'Rc5C9EyvbU' | password_hash ('sha512') }}"
+     password: "{{ 'LQfKeWWxWD' | password_hash ('sha512') }}"
      groups: admins,wheel
      state: present
     loop:
@@ -29,7 +29,7 @@
   - name: creating users for the developers group
     user:
      name: "{{ item }}"
-     password: "{{ 'BruCStnMT5' | password_hash ('sha512') }}"
+     password: "{{ 'Rc5C9EyvbU' | password_hash ('sha512') }}"
      home: "/var/www/{{ item }}"
      group: developers
      state: present
