@@ -35,12 +35,10 @@ thor@jump_host ~$ k get pods -n httpd-namespace-datacenter
 NAME                                           READY   STATUS    RESTARTS   AGE
 httpd-deployment-datacenter-64647444c9-2srlt   1/1     Running   0          16s
 httpd-deployment-datacenter-64647444c9-5mqmj   1/1     Running   0          16s
-httpd-deployment-datacenter-64647444c9-fq4nf   1/1     Running   0          16s
-httpd-deployment-datacenter-64647444c9-nttb4   1/1     Running   0          16s
 
 thor@jump_host ~$ k get deploy -n httpd-namespace-datacenter
 NAME                          READY   UP-TO-DATE   AVAILABLE   AGE
-httpd-deployment-datacenter   4/4     4            4           72s
+httpd-deployment-datacenter   2/2     2            2           72s
 
 thor@jump_host ~$ k get svc -n httpd-namespace-datacenter
 NAME                       TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
