@@ -43,16 +43,15 @@ service/nginx-service created
 
 ```
 thor@jump_host ~$ kubectl get deploy
-NAME               READY   UP-TO-DATE   AVAILABLE   AGE
-nginx-deployment   3/3     3            3           35s
+NAME                               READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/nginx-deployment   3/3     3            3           2m57s
 thor@jump_host ~$ kubectl get svc
-NAME            TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE
-kubernetes      ClusterIP   10.96.0.1     <none>        443/TCP        175m
-nginx-service   NodePort    10.97.71.52   <none>        80:30011/TCP   13s
+NAME                    TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
+service/kubernetes      ClusterIP   10.96.0.1      <none>        443/TCP        74m
+service/nginx-service   NodePort    10.96.219.86   <none>        80:30011/TCP   4s
 ```
 
 7. Finally, check the application on port 30011 by clicking on view port on Host 1, and add port 30011 and click submit, you will see nginx default page as below,
 
-![Default Nginx Page](/images/WelcomeNginx.JPG)
 
 Thank you.
