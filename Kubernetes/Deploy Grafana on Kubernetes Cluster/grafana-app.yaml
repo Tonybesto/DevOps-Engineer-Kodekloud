@@ -14,7 +14,54 @@ spec:
   template:
     metadata:
       labels:
-        app: grafana
+        app: grafana---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: grafana-deployment-xfusion
+  name: grafana-deployment-xfusion
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grafana-deployment-xfusion
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: grafana-deployment-xfusion
+    spec:
+      containers:
+      - image: grafana/grafana:latest
+        name: grafana
+        ports:
+        - containerPort: 3000
+        resources: {}
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: grafana-deployment-xfusion
+  name: grafana-service-xfusion
+spec:
+  ports:
+  - port: 3000
+    protocol: TCP
+    targetPort: 3000
+    nodePort: 32000
+  selector:
+    app: grafana-deployment-xfusion
+  type: NodePort
+status:
+  loadBalancer: {}
+
+
     spec:
       containers:
       - name: grafana-container-datacenter
