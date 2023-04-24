@@ -6,10 +6,10 @@
   gather_facts: true
   become: true
   tasks:
-    - name: unarchieve the zip on app server
+    - name: unarchive the zip on app servers
       unarchive:
-        src: /usr/src/security/datacenter.zip
-        dest: /opt/security/
+        src: /usr/src/data/xfusion.zip
+        dest: /opt/data/
         owner: "{{ ansible_user }}"
         group: "{{ ansible_user }}"
-        mode: '0755'
+        mode: '0777'

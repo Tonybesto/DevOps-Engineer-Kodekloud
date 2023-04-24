@@ -59,17 +59,17 @@ stapp03                    : ok=2    changed=1    unreachable=0    failed=0    s
 5. Now, SSH to any app server node and verify the file is created correctly along with group/owner permissions,
 
 ```
-[tony@stapp01 ~]$ cd /opt/security/
+[tony@stapp01 ~]$ cd /opt/data/
 
-[tony@stapp01 security]$ ls -ltr
+[tony@stapp01 data]$ ls -ltr
 total 4
 drwxr-xr-x 2 tony tony 4096 Oct  7 07:37 unarchive
 
-[tony@stapp01 security]$ ls -ltr unarchive/
+[tony@stapp01 data]$ ls -ltr unarchive/
 total 4
 -rwxr-xr-x 1 tony tony 35 Oct  7 07:36 web.txt
 
-[tony@stapp01 security]$ cat unarchive/web.txt
+[tony@stapp01 data]$ cat unarchive/web.txt
 Welcome to xFusionCorp Industries !
 ```
 
