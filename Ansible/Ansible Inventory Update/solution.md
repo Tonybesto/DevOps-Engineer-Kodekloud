@@ -21,7 +21,7 @@ total 8
 thor@jump_host ~/playbook$ vi inventory
 
 thor@jump_host ~/playbook$ cat inventory
-stapp03 ansible_host=172.16.238.12 ansible_ssh_pass=BigGr33n ansible_user=banner
+stapp02 ansible_host=172.16.238.11 ansible_ssh_pass=Am3ric@ ansible_user=steve
 ```
 
 4. Also, check the playbook which is going to execute on target host,
@@ -49,21 +49,22 @@ thor@jump_host ~/playbook$ cat playbook.yml
 ```
 thor@jump_host ~/playbook$ ansible-playbook -i inventory playbook.yml
 
-PLAY [all] ***********************************************************************************************************************************
-TASK [Gathering Facts] ***********************************************************************************************************************
-ok: [stapp03]
+PLAY [all] ***************************************************************************************************************************************************
 
-TASK [Install httpd package] *****************************************************************************************************************
-changed: [stapp03]
+TASK [Gathering Facts] ***************************************************************************************************************************************
+ok: [stapp02]
 
-TASK [Start service httpd] *******************************************************************************************************************
-changed: [stapp03]
+TASK [Install httpd package] *********************************************************************************************************************************
+changed: [stapp02]
 
-PLAY RECAP ***********************************************************************************************************************************
-stapp03                    : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+TASK [Start service httpd] ***********************************************************************************************************************************
+changed: [stapp02]
+
+PLAY RECAP ***************************************************************************************************************************************************
+stapp02                    : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0 
 ```
 
-Finally, you can verify if `httpd` service is running on app server 3.
+Finally, you can verify if `httpd` service is running on app server 2.
 
 Thank you.
 
