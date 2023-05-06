@@ -15,14 +15,14 @@ thor@jump_host ~$ alias k='kubectl'
 3. Check the `ecommerce.txt` secret key file,
 
 ```
-thor@jump_host ~$ cat /opt/ecommerce.txt
+thor@jump_host ~$ cat /opt/beta.txt
 5ecur3!
 ```
 
 4. Now, create a secret.yaml template using imperative command,
 
 ```
-thor@jump_host ~$ k create secret generic ecommerce  --from-file=/opt/ecommerce.txt --dry-run=client -o yaml > secret.yaml
+thor@jump_host ~$ k create secret generic ecommerce  --from-file=/opt/beta.txt --dry-run=client -o yaml > secret.yaml
 ```
 
 5. Edit the secret.yaml and add a type as generic,
@@ -36,7 +36,7 @@ thor@jump_host ~$ vi secret.yaml
 
 ```
 thor@jump_host ~$ k create -f secret.yaml
-secret/ecommerce  created
+secret/beta  created
 ```
 
 7. Validate that secret has created correctly,
@@ -59,7 +59,7 @@ thor@jump_host ~$ vi pod.yaml
 
 ```
 thor@jump_host ~$ k create -f pod.yaml
-pod/secret-nautilus created
+pod/secret-datacenter created
 ```
 
 10. Check the pod status,
@@ -67,30 +67,30 @@ pod/secret-nautilus created
 ```
 thor@jump_host ~$ k get pods
 NAME              READY   STATUS              RESTARTS   AGE
-secret-nautilus   0/1     ContainerCreating   0          3s
+secret-datacenter   0/1     ContainerCreating   0          3s
 
 thor@jump_host ~$ k get pods
 NAME              READY   STATUS    RESTARTS   AGE
-secret-nautilus   1/1     Running   0          7s
+secret-datacenter   1/1     Running   0          7s
 ```
 
 11. Now, validate that secrets are mounted correctly and we can see the same password file above inside the container. Take a bash shell inside a pod,
 
 ```
-thor@jump_host ~$ k exec -it secret-nautilus /bin/bash
+thor@jump_host ~$ k exec -it secret-datacenter/bin/bash
 kubectl exec [POD] [COMMAND] is DEPRECATED and will be removed in a future version. Use kubectl kubectl exec [POD] -- [COMMAND] instead.
 ```
 
 12. Mount path is `/opt/games`, change directory to this path and cat a file,
 
 ```
-root@secret-nautilus:/# cd /opt/games/
+root@secret-datacenter:/# cd /opt/demo/
 
-root@secret-nautilus:/opt/games# ls -ltr
+root@secret-datacenter:/opt/demo# ls -ltr
 total 0
-lrwxrwxrwx 1 root root 20 Oct 25 04:24 ecommerce.txt -> ..data/ecommerce.txt
+lrwxrwxrwx 1 root root 20 Oct 25 04:24 ecommerce.txt -> ..data/beta.txt
 
-root@secret-nautilus:/opt/games# cat ecommerce.txt
+root@secret-datacenter:/opt/demo# cat beta.txt
 5ecur3!
 ```
 
