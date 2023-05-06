@@ -45,7 +45,7 @@ secret/ecommerce  created
 thor@jump_host ~$ k get secret
 NAME                  TYPE                                  DATA   AGE
 default-token-p4vxn   kubernetes.io/service-account-token   3      10h
-ecommerce             generic                               1      4s
+beta             generic                               1      4s
 ```
 
 8. Now, create a `pod.yaml` config,
