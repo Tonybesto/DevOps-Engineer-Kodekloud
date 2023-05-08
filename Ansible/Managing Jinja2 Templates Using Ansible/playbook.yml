@@ -1,0 +1,6 @@
+---- 
+hosts: stapp02 # Only running on app server1
+become: yes
+become_user: root
+roles:
+  - role/httpd
