@@ -12,7 +12,7 @@ thor@jump_host /$ cd /home/thor/
 thor@jump_host ~$ alias k='kubectl'
 ```
 
-3. Check the `ecommerce.txt` secret key file,
+1. Check the `beta.txt` secret key file,
 
 ```
 thor@jump_host ~$ cat /opt/beta.txt
@@ -77,7 +77,7 @@ secret-datacenter   1/1     Running   0          7s
 11. Now, validate that secrets are mounted correctly and we can see the same password file above inside the container. Take a bash shell inside a pod,
 
 ```
-thor@jump_host ~$ k exec -it secret-datacenter/bin/bash
+thor@jump_host ~$ k exec -it secret-datacenter /bin/bash
 kubectl exec [POD] [COMMAND] is DEPRECATED and will be removed in a future version. Use kubectl kubectl exec [POD] -- [COMMAND] instead.
 ```
 
