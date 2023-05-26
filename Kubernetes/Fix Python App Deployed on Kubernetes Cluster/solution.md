@@ -94,9 +94,9 @@ spec:
   ipFamilyPolicy: SingleStack
   ports:
   - nodePort: 32345
-    port: 8080
+    port: 5000
     protocol: TCP
-    targetPort: 8080
+    targetPort: 5000
   selector:
     app: python_app
   sessionAffinity: None
@@ -104,9 +104,5 @@ spec:
 status:
   loadBalancer: {}
 ```
-
-10. Now try accessing application on the node port mentioend i.e. port 32345, you should the web page.
-
-![Python Web App](/images/python-web-app.png)
 
 Thank you.
