@@ -89,8 +89,7 @@ Hint: Some lines were ellipsized, use -l to show in full.
 7. Get the latest docker-compose binary,
 
 ```
-[steve@stapp02 ~]$ sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/lo
-cal/bin/docker-compose
+[steve@stapp02 ~]$ sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100   651  100   651    0     0   4196      0 --:--:-- --:--:-- --:--:--  4173
