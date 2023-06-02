@@ -141,12 +141,4 @@ To http://git.stratos.xfusioncorp.com/sarah/story-blog.git
    
 ```
 
-11. Now, login to the Gitea server page and check the commit made by you i.e. max user,
-
-![Git Commits by Max User](/images/GitCommits.JPG)
-
-12. Also, verify that the remote repo i.e. sarah repo have all the changes we have made using max user,
-
-![Git Remote of Sarah user](/images/GitRemote.JPG)
-
 Thank you.
