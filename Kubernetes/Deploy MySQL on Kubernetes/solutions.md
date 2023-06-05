@@ -91,4 +91,4 @@ mysql        NodePort    10.96.56.189   <none>        3306:30007/TCP   4m54s
 
 **Note**: Once the pod is up and running you can use `kubectl exec` to run MySQL commands and connect to the database using credentials used in Secrets.
 
-Thank you.
+Thank you!!!
