@@ -10,20 +10,26 @@ No certificates to list
 2. We need to do autosign for each agent node. For that we need to create `autosign.conf` as below on puppet master node i.e. on jump_host,
 
 ```
-root@jump_host /# vi /etc/puppetlabs/puppet/autosign.conf
+root@jump_host /# 
+
+vi /etc/puppetlabs/puppet/autosign.conf
 ```
 *Note: Refer current directory for the same config file*
 
 3. Then, restart a puppet service using a command,
 
 ```
-root@jump_host /# systemctl restart puppet
+root@jump_host /# 
+
+systemctl restart puppetserver
 ```
 
 4. Now edit the hosts files on jump host as well as on all app servers and add an alias as puppet for jump host node,
 
 ```
-root@jump_host /# vi /etc/hosts
+root@jump_host /# 
+vi /etc/hosts
+
 172.16.238.1    jump_host.stratos.xfusioncorp.com puppet
 172.16.238.2    jump_host.stratos.xfusioncorp.com puppet
 
