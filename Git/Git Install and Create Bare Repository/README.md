@@ -4,5 +4,5 @@ The Nautilus development team shared requirements with the DevOps team regarding
 
     Install git package using yum on Storage server.
 
-    After that create a bare repository /opt/news.git (make sure to use exact name).
+    After that create a bare repository /opt/demo.git (make sure to use exact name).
 
