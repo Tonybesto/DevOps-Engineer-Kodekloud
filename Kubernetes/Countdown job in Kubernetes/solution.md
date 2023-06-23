@@ -37,16 +37,16 @@ countdown-devops-rgcvg   0/1     ContainerCreating   0          4s
 
 ```
 thor@jump_host ~$ k logs -f countdown-devops-rgcvg
-10
-9
-8
-7
-6
-5
-4
-3
-2
-1
+ten
+nine
+eight
+seven
+six
+five
+four
+three
+two
+one
 ```
 
 7. Check the pod status again, we can see the status as Job `Completed`,

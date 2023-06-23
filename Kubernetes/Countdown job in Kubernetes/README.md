@@ -9,7 +9,7 @@ The spec template should be named as `countdown-devops` (under metadata), and th
 
 Use image `centos` with `latest` tag only and remember to mention tag i.e `centos:latest`, and restart policy should be `Never`.
 
-Use command for `i in 10 9 8 7 6 5 4 3 2 1 ; do echo $i ; done`
+Use command for `for i in ten nine eight seven six five four three two one ; do echo $i ; done`
 
 Note: The kubectl utility on jump_host has been configured to work with the kubernetes cluster.
 
