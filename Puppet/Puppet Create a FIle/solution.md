@@ -1,9 +1,9 @@
 #### Puppet Create a FIle
 
 Change a directory to a location of manifest inside puppetlabs,
-
-    cd /etc/puppetlabs/code/environments/production/manifests/
-
+```
+cd /etc/puppetlabs/code/environments/production/manifests/
+```
 Use a file module to create a respective file named `ecommerce.txt` on App server2, 
 
     vi cluster.pp
