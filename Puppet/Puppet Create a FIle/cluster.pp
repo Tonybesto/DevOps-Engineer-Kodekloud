@@ -1,6 +1,6 @@
-class create_file {
+lass create_file {
 
-    file { '/opt/sysops/ecommerce.txt':
+    file { '/opt/sysops/beta.txt':
       ensure  => 'present',
       replace => 'no', # this is the important property
       content => "",
@@ -8,5 +8,8 @@ class create_file {
     }
 
 }
+node 'stapp02.stratos.xfusioncorp.com'{
+
 
 include create_file
+}
