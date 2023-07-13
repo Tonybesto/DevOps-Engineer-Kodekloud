@@ -80,7 +80,7 @@ jenkins-service   NodePort   10.99.96.43   <none>        8080:30008/TCP   14s
 
 11. Now, you can access the Jenkins UI on port 30008. Click on + ahead of terminal and choose `Select Port to view on Host 1` and enter port as mentioend i.e. 30008 and click on Display Port, you should see as below,
 
-![Jenkins Service](/images/jenkinsk8sDeploy.JPG)
+
 
 Thank you.
 
