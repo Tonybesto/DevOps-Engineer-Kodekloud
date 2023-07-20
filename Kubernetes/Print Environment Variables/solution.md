@@ -28,7 +28,7 @@ print-envars-greeting   0/1     Completed   0          6s
 
 ```
 thor@jump_host ~$ kubectl logs -f print-envars-greeting
-Welcome to Nautilus Ltd
+Welcome to xFusionCorp Group
 ```
 Thank you!!
 

@@ -12,6 +12,6 @@ spec:
     - name: GREETING
       value: "Welcome to"
     - name: COMPANY
-      value: "Nautilus"
+      value: "xFusionCorp"
     - name: GROUP
-      value: "Ltd"
+      value: "Group"
