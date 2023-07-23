@@ -68,4 +68,4 @@ stapp01 | SUCCESS => {
 
 **NOTE: I am getting success for all 3 server as I copied ssh public key to all 3 app servers**
 
-Hope it helps. Thanks.
+Thanks!!!
