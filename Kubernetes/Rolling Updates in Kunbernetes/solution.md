@@ -1,4 +1,4 @@
-#### Rolling Updates in Kunbernetes
+#### Rolling Updates in Kubernetes
 
 1. As deployment is already created and pods are running, edit the deployment usign the following command,
 
