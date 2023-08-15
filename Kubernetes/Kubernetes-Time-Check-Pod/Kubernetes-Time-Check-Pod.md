@@ -5,7 +5,7 @@ metadata:
   name: time-config
   namespace: nautilus
 data:
-  TIME_FREQ: "2"
+  TIME_FREQ: "3"
 --- 
 #
 apiVersion: v1

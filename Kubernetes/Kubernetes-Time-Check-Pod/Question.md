@@ -9,7 +9,7 @@ The Nautilus DevOps team want to create a `time check pod` in a particular Kuber
 
 2. **Create a config map called `time-config` with the data** 
 
-    TIME_FREQ=2 in the same namespace.
+    TIME_FREQ=3 in the same namespace.
 
     The time-check container should run the command: **`while true; do date; sleep $TIME_FREQ;done`** and should write the result to the 
     location **`/opt/finance/time/time-check.log`**. Remember you will also need to add an environmental variable **`TIME_FREQ`** in the container, which should pick value from the config map TIME_FREQ key.
