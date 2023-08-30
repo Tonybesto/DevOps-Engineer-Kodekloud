@@ -2,8 +2,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: tomcat-deployment-xfusion
-  namespace: tomcat-namespace-nautilus
+  name: tomcat-deployment-datacenter
+  namespace: tomcat-namespace-datacenter
   labels:
     app: tomcat
 spec:
@@ -17,7 +17,7 @@ spec:
         app: tomcat
     spec:
       containers:
-      - name: tomcat-container-xfusion
+      - name: tomcat-container-datacenter
         image: gcr.io/kodekloud/centos-ssh-enabled:tomcat
         ports:
         - containerPort: 8080
@@ -25,8 +25,8 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: tomcat-service-xfusion
-  namespace: tomcat-namespace-nautilus
+  name: tomcat-service-datacenter
+  namespace: tomcat-namespace-datacenter
 spec:
   type: NodePort
   ports:

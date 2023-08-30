@@ -19,11 +19,11 @@ vi tomcat.yaml
 alias k='kubectl'
 ```
 
-4. Create a namespace `tomcat-namespace-nautilus`,
+4. Create a namespace `tomcat-namespace-datacenter`,
 
 ```
-k create ns tomcat-namespace-nautilus
-namespace/tomcat-namespace-nautilus created
+k create ns tomcat-namespace-datacenter
+namespace/tomcat-namespace-datacenter created
 ```
 
 5. Now, apply the config file which will create a deployment and service respectively.
@@ -31,30 +31,30 @@ namespace/tomcat-namespace-nautilus created
 ```
 k create -f tomcat.yaml
 
-deployment.apps/tomcat-deployment-xfusion created
-service/tomcat-service-xfusion created
+deployment.apps/tomcat-deployment-datacenter created
+service/tomcat-service-datacenter created
 ```
 
 6. Check the pods and deployment status,
 
 ```
-k get deploy -n tomcat-namespace-nautilus
+k get deploy -n tomcat-namespace-datacenter
 
 NAME                        READY   UP-TO-DATE   AVAILABLE   AGE
-tomcat-deployment-xfusion   0/1     1            0           13s
+tomcat-deployment-datacenter   0/1     1            0           13s
 
-k get po -n tomcat-namespace-nautilus
+k get po -n tomcat-namespace-datacenter
 
 NAME                                         READY   STATUS              RESTARTS   AGE
-tomcat-deployment-xfusion-5bd7cf974b-rq2bk   0/1     ContainerCreating   0          20s
+tomcat-deployment-datacenter-5bd7cf974b-rq2bk   0/1     ContainerCreating   0          20s
 
-k get po -n tomcat-namespace-nautilus
+k get po -n tomcat-namespace-datacenter
 NAME                                         READY   STATUS    RESTARTS   AGE
-tomcat-deployment-xfusion-5bd7cf974b-rq2bk   1/1     Running   0          29s
+tomcat-deployment-datacenter-5bd7cf974b-rq2bk   1/1     Running   0          29s
 
-k get deploy -n tomcat-namespace-nautilus
+k get deploy -n tomcat-namespace-datacenter
 NAME                        READY   UP-TO-DATE   AVAILABLE   AGE
-tomcat-deployment-xfusion   1/1     1            1           33s
+tomcat-deployment-datacenter   1/1     1            1           33s
 ```
 
 
